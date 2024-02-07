@@ -20,10 +20,10 @@ const PlayerForm = () => {
 
   const formValidator = () => {
     let isValid = true
-    if (player.name.length > 2) {
+    if (player.name.length < 2) {
       return false
     }
-    else if (player.preferredPosition.length < 2) {
+    if (player.preferredPosition.length < 2) {
       return false
     }
     return isValid
@@ -36,12 +36,12 @@ const PlayerForm = () => {
         .then(res => console.log(res))
         .catch(err => console.log(err))
     }
-    else{
+    else {
       setErrors({
         name: "Name must be at least 2 characters",
         preferredPosition: "Preferred Position must be at least 2 characters"
-
       })
+
     }
 
   }
@@ -49,6 +49,7 @@ const PlayerForm = () => {
     <div>
           <h1>Add Player</h1>
           {errors.name ? <p className='text-danger'>{errors.name}</p> : ""}
+          {errors.preferredPosition ? <p className='text-danger'>{errors.preferredPosition}</p> : ""}
       <form action="" className="col-md-6 offset-2" onSubmit={handleSubmit}>
         <div className='form-group'>
             <label htmlFor='name'>Player Name:</label>
@@ -57,7 +58,7 @@ const PlayerForm = () => {
 
         <div className='form-group'>
           <label htmlFor='position'>Preferred Position:</label>
-          <input type='text' className='form-control' name='position' id='position' onChange={onChangeHandler} />
+          <input type='text' className='form-control' name='preferredPosition' id='preferredPosition' onChange={onChangeHandler} />
         </div>
 
         <button className="btn btn-info mt-3">Create Player</button>
