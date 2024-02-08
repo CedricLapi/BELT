@@ -2,6 +2,9 @@ import axios from 'axios';
 import './App.css'
 import { useEffect } from 'react';
 import PlayerForm from './components/PlayerForm';
+import PlayerDashboard from './components/PlayerDashboard';
+import  { Routes, Route } from 'react-router-dom';
+import PlayerDetails from './components/PlayerDetails';
 
 function App() {
   
@@ -14,7 +17,17 @@ function App() {
   return (
     <>
       <h1>In the main app</h1>
-      <PlayerForm />
+
+      <Routes>
+
+      < Route element = {<PlayerForm />} path="api/players/create" />
+      < Route element = {<PlayerDashboard />} path="api/players" />
+      < Route element = {<PlayerDetails />} path="api/players/:id" />
+
+      </Routes>
+
+      
+      
     </>
   )
 }
