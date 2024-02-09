@@ -4,6 +4,9 @@ import {  useNavigate } from 'react-router-dom';
 
 const PlayerDashboard = () => {
 
+    
+
+    
     const [players, setPlayers] = useState([])
     const navigate = useNavigate();
 
@@ -17,6 +20,17 @@ const PlayerDashboard = () => {
     const navigateToPlayerForm = () => {
         navigate("/api/players/create")
     }
+
+    //Delete Player
+    const deletePlayer = (id) => {
+        axios.delete(`http://localhost:8000/api/players/${id}`)
+            .then(res => {
+                const filteredPlayers = players.filter(player => player._id !== id)
+                setPlayers(filteredPlayers)
+            })
+            .catch(err => console.log(err))
+        
+      }
 
   return (
     <div>
@@ -38,14 +52,14 @@ const PlayerDashboard = () => {
                             <td>{player.name}</td>
                             <td>{player.preferredPosition}</td>
                             <td>
-                                <button className='btn btn-danger'>Delete</button>
+                                <button className='btn btn-danger' onClick={(e) => deletePlayer(player._id)}>Delete</button>
                             </td>
                         </tr>
                     )
                 })}
             </tbody>
         </table>
-        <button className="btn btn-info offset-11 mt-5" onClick={navigateToPlayerForm}>Create Player</button>
+        <button className="btn btn-info offset-9 mt-5" onClick={navigateToPlayerForm}>Create Player</button>
     </div>
   )
 }

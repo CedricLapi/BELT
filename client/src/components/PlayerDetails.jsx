@@ -1,12 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 
 const PlayerDetails = (props) => {
 
     const {id} = useParams();
+    const navigate = useNavigate();
 
     const [OnePlayer, setOnePlayer] = useState({})
 
@@ -17,6 +18,14 @@ const PlayerDetails = (props) => {
 
     }, [])
 
+    //Delete Player
+    const deletePlayer = (e) => {
+      axios.delete(`http://localhost:8000/api/players/${id}`)
+          .then(res => console.log(res))
+          .catch(err => console.log(err))
+      navigate("/api/players")
+    }
+
   return (
     <div>
         <h1>Name: {OnePlayer.name}</h1>
@@ -26,7 +35,7 @@ const PlayerDetails = (props) => {
         <p>Game Three status: {OnePlayer.gameThreeStatus}</p>
 
         <button className="btn btn-info mr-3">Edit Player</button>
-        <button className="btn btn-danger">Delete Player</button>
+        <button className="btn btn-danger" onClick={deletePlayer}>Delete Player</button>
     </div>
   )
 }

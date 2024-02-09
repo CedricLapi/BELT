@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const PlayerForm = () => {
 
@@ -9,7 +10,9 @@ const PlayerForm = () => {
   })
 
   const [errors, setErrors] = useState({})
-  
+
+
+  const navigate = useNavigate();
 
   const onChangeHandler = (e) => {
     setPlayer({
@@ -44,6 +47,7 @@ const PlayerForm = () => {
 
     }
 
+    navigate("/api/players")
   }
   return (
     <div>
