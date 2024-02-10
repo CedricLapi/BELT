@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import {  useNavigate } from 'react-router-dom';
+import {   Link, useNavigate } from 'react-router-dom';
 
 const PlayerDashboard = () => {
 
@@ -34,7 +34,7 @@ const PlayerDashboard = () => {
 
   return (
     <div>
-        <h1>In The dashboard</h1>
+        <h1 className='mx-auto'>Player Dashboard</h1>
 
         <table className="col-md-11 mx-auto mt-4">
             <thead>
@@ -46,10 +46,10 @@ const PlayerDashboard = () => {
 
             </thead>
             <tbody>
-                {players.map((player, i) => {
+                {players.map((player) => {
                     return (
                         <tr key={player._id}>
-                            <td>{player.name}</td>
+                            <td><Link to={`${player._id}`}>{player.name}</Link></td>
                             <td>{player.preferredPosition}</td>
                             <td>
                                 <button className='btn btn-danger' onClick={(e) => deletePlayer(player._id)}>Delete</button>

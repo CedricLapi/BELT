@@ -26,6 +26,10 @@ const PlayerDetails = (props) => {
       navigate("/api/players")
     }
 
+    const navigateToEditPlayer = (e) => {
+      navigate(`/api/players/${id}/edit`)
+    }
+
   return (
     <div>
         <h1>Name: {OnePlayer.name}</h1>
@@ -34,10 +38,10 @@ const PlayerDetails = (props) => {
         <p>Game Two status: {OnePlayer.gameTwoStatus}</p>
         <p>Game Three status: {OnePlayer.gameThreeStatus}</p>
 
-        <button className="btn btn-info mr-3">Edit Player</button>
+        <button className="btn btn-info mr-3" onClick={(e) => navigateToEditPlayer(OnePlayer._id)}>Edit Player</button>
         <button className="btn btn-danger" onClick={deletePlayer}>Delete Player</button>
     </div>
   )
 }
 
-export default PlayerDetails
+export default PlayerDetails;

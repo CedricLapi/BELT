@@ -5,6 +5,7 @@ import PlayerForm from './components/PlayerForm';
 import PlayerDashboard from './components/PlayerDashboard';
 import  { Routes, Route } from 'react-router-dom';
 import PlayerDetails from './components/PlayerDetails';
+import EditPlayer from './components/EditPlayer';
 
 function App() {
   
@@ -23,6 +24,8 @@ function App() {
       < Route element = {<PlayerForm />} path="api/players/create" />
       < Route element = {<PlayerDashboard />} path="api/players" />
       < Route element = {<PlayerDetails />} path="api/players/:id" />
+      < Route element = {<EditPlayer />} path="api/players/:id/edit" />
+
 
       </Routes>
 
