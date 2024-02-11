@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 
 
+
 const PlayerDetails = (props) => {
 
     const {id} = useParams();
@@ -32,6 +33,7 @@ const PlayerDetails = (props) => {
 
   return (
     <div>
+      
         <h1>Name: {OnePlayer.name}</h1>
         <p>Preferred Position: {OnePlayer.preferredPosition}</p>
         <p>Game One status: {OnePlayer.gameOneStatus}</p>

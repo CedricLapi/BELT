@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
+
 const EditPlayer = (props) => {
 
     const {id} = useParams();
@@ -32,6 +33,7 @@ const EditPlayer = (props) => {
   return (
 
     <div>
+        
             <h1 className="mx-auto">Edit Player</h1>
 
         <form action="" className='col-md-6 mx-auto' onSubmit={editPlayer}>
@@ -43,11 +45,8 @@ const EditPlayer = (props) => {
             <div className="form-group">
                 <label htmlFor="preferredPosition">Preferred Position</label>
                 <input type="text" name="preferredPosition" id="preferredPosition" className="form-control" value={onePlayer.preferredPosition} onChange={changeHandler} />
-
-                
-                <button className="btn btn-info mr-3 mt-3">Edit Player</button>
-
             </div>
+                <button className="btn btn-info mr-3 mt-3">Edit Player</button>
         </form>
     </div>
   )

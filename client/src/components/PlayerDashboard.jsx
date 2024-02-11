@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import {   Link, useNavigate } from 'react-router-dom';
 
+
 const PlayerDashboard = () => {
 
     
@@ -34,6 +35,7 @@ const PlayerDashboard = () => {
 
   return (
     <div>
+        
         <h1 className='mx-auto'>Player Dashboard</h1>
 
         <table className="col-md-11 mx-auto mt-4">

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+
 const PlayerForm = () => {
 
   const [player, setPlayer] = useState({
@@ -51,6 +52,7 @@ const PlayerForm = () => {
   }
   return (
     <div>
+          
           <h1>Add Player</h1>
           {errors.name ? <p className='text-danger'>{errors.name}</p> : ""}
           {errors.preferredPosition ? <p className='text-danger'>{errors.preferredPosition}</p> : ""}

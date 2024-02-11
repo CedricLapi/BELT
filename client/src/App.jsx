@@ -6,6 +6,7 @@ import PlayerDashboard from './components/PlayerDashboard';
 import  { Routes, Route } from 'react-router-dom';
 import PlayerDetails from './components/PlayerDetails';
 import EditPlayer from './components/EditPlayer';
+import Navbar from './components/Navbar';
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <>
+    <Navbar />
       <h1>In the main app</h1>
 
       <Routes>
